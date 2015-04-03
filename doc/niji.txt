@@ -1,0 +1,93 @@
+*niji.txt*                              Yet another rainbow parentheses plugin
+
+FRONT MATTER                                             *niji-front-matter*
+
+     Maintainer: The maintainer appears to have left the building.
+                 This would be a fork but the plugin was pulled from github
+
+CONFIGURATION                                           *niji-configuration*
+
+‘g:loaded_niji’                                              *'loaded_niji'*
+
+To disable Niji, just define this variable, for example:
+>
+    let g:loaded_niji = 1
+<
+
+‘g:niji_matching_filetypes’                      *'niji_matching_filetypes'*
+
+By default, Niji gives you rainbow parentheses for the following three
+|FileType|’s:
+
+    1. `lisp`
+    2. `scheme`
+    3. `clojure`
+
+You can override this setting by defining your own, for example:
+>
+    let g:niji_matching_filetypes = ['lisp', 'ruby', 'python']
+<
+
+‘g:niji_matching_characters’                    *'niji_matching_characters'*
+
+By default, Niji gives you rainbow highlighting for the following three sets
+of characters:
+
+    1. Parentheses: ‘(’ & ‘)’
+    2. Brackets: ‘[’ & ‘]’
+    3. Braces: ‘{’ & ‘}’
+
+You can override this setting by defining your own, for example:
+>
+    let g:niji_matching_characters = [['(', ')'],
+                                    \ ['\[', '\]'],
+                                    \ ['<', '>']]
+<
+
+Note that you need to backslash escape square brackets (‘[’ and ‘]’).
+
+
+‘g:niji_dark_colours’ &                                *'niji_dark_colours'*
+‘g:niji_light_colours’                                *'niji_light_colours'*
+
+By default, Niji chooses between two sets of 10 colours -- based on whether
+your `colorscheme` uses a dark or light background, and with support for both
+terminal and graphical variants of Vim (such as Gvim or MacVim) -- which match
+those of Vim‘s built-in Lisp syntax file. You can override these by defining
+your own list of colours, for example:
+>
+    let g:niji_dark_colours = [['brown', 'RoyalBlue3'],
+                            \ ['Darkblue', 'SeaGreen3'],
+                            \ ['darkgray', 'DarkOrchid3'],
+                            \ ['darkgreen', 'firebrick3'],
+                            \ ['darkcyan', 'RoyalBlue3']]
+<
+
+Note that your outer-most parenthesis colour comes first, and the inner-most
+parenthesis colour comes last.
+
+You can define as few or as many as you like, and Niji will cycle through each
+of them as the nesting of your expressions increases.
+
+If you want to use the same colours for both light and dark backgrounds, you
+could do the following:
+>
+    let g:niji_dark_colours = [['brown', 'RoyalBlue3'],
+                             \ ['DarkBlue', 'SeaGreen3']]
+    let g:niji_light_colours = g:niji_dark_colours
+<
+
+Note the British spelling of ‘colour’.
+
+
+‘g:niji_use_legacy_colours’                      *'niji_use_legacy_colours'*
+
+Let this variable to use the colour scheme available in the rainbow
+parentheses scripts by ‘kien’, Martin Krischik, Luc Hermitte and John Gilmore.
+>
+    let g:niji_use_legacy_colours = 1
+<
+
+Note the British spelling of ‘colour’.
+
+vim:tw=78:ft=help:norl:
